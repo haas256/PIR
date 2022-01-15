@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 /*
  * @title Collusion-resistant multi-server PIR manager
- * @author Anonymous <@gmail.com>
+ * @author Tiantian Gong <tiangong17@gmail.com>
  *
  * @dev Implements a contract managing multi-server PIR services and collusion accusation resolution
  */
