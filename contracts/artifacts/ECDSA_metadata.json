@@ -1,0 +1,47 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Based on https://gist.github.com/axic/5b33912c6f61ae6fd96d6c4a47afde6d TODO Remove this library once solidity supports passing a signature to ecrecover. See https://github.com/ethereum/solidity/issues/864",
+			"kind": "dev",
+			"methods": {},
+			"title": "Elliptic curve signature operations",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ECDSA.sol": "ECDSA"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ECDSA.sol": {
+			"keccak256": "0x920767eeefad621905a3414f632759eaa56dfd3d6e6782f6f935b58742160bee",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d71994848e60ba7e2460e90365d3312751c193f3f72d7cc277ee0fc973370064",
+				"dweb:/ipfs/QmcEwXm32Lu891EmvWg54QRnhFJnodgmiy5bP6YdTqK6ir"
+			]
+		}
+	},
+	"version": 1
+}

@@ -180,6 +180,12 @@
 						"internalType": "bytes32",
 						"name": "response",
 						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "signature",
+						"type": "bytes32"
 					}
 				],
 				"name": "Response",
@@ -240,6 +246,52 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sid",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes",
+						"name": "q",
+						"type": "bytes"
+					}
+				],
+				"name": "badQuery",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sid",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes",
+						"name": "resp",
+						"type": "bytes"
+					}
+				],
+				"name": "badResponse",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "server",
 						"type": "address"
@@ -289,6 +341,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_str",
+						"type": "bytes"
+					}
+				],
+				"name": "computeHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "deposit",
 				"outputs": [],
@@ -311,44 +382,6 @@
 				"name": "fullfil",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "server_addr",
-						"type": "address"
-					}
-				],
-				"name": "getPk",
-				"outputs": [
-					{
-						"internalType": "uint256[]",
-						"name": "",
-						"type": "uint256[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address[]",
-						"name": "server_addrs",
-						"type": "address[]"
-					}
-				],
-				"name": "getPks",
-				"outputs": [
-					{
-						"internalType": "uint256[]",
-						"name": "",
-						"type": "uint256[]"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -408,19 +441,14 @@
 						"type": "address[]"
 					},
 					{
-						"internalType": "uint256",
-						"name": "y",
-						"type": "uint256"
+						"internalType": "bytes32[]",
+						"name": "comms",
+						"type": "bytes32[]"
 					},
 					{
-						"internalType": "uint256",
-						"name": "p",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "g",
-						"type": "uint256"
+						"internalType": "bytes32[]",
+						"name": "sigs",
+						"type": "bytes32[]"
 					}
 				],
 				"name": "postRequests",
@@ -550,16 +578,6 @@
 						"internalType": "bytes",
 						"name": "mg",
 						"type": "bytes"
-					},
-					{
-						"internalType": "uint256",
-						"name": "a",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "b",
-						"type": "uint256"
 					}
 				],
 				"name": "submitNewInfo1",
@@ -583,16 +601,6 @@
 						"internalType": "bytes",
 						"name": "mg",
 						"type": "bytes"
-					},
-					{
-						"internalType": "uint256",
-						"name": "a",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "b",
-						"type": "uint256"
 					}
 				],
 				"name": "submitNewInfo2",
@@ -608,19 +616,9 @@
 						"type": "bytes32"
 					},
 					{
-						"internalType": "uint256",
-						"name": "p",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "g",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "h",
-						"type": "uint256"
+						"internalType": "bytes32",
+						"name": "r_sig",
+						"type": "bytes32"
 					},
 					{
 						"internalType": "uint256",
@@ -643,14 +641,25 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256[]",
-						"name": "epk",
-						"type": "uint256[]"
+						"internalType": "bytes32",
+						"name": "comm",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_str",
+						"type": "bytes"
 					}
 				],
-				"name": "updateKey",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "vrfyHash",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -659,6 +668,30 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					}
+				],
+				"name": "xorReconstruct",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -666,6 +699,12 @@
 			"methods": {
 				"accuse(uint8,uint256,bytes,address,uint256)": {
 					"details": "accuse with evidence  "
+				},
+				"badQuery(uint256,uint8,bytes)": {
+					"details": "Byzantine user committing to one message m but sign m'(\\neq m) The query is discarded and service fees automatically distributed to involved servers. "
+				},
+				"badResponse(uint256,uint8,bytes)": {
+					"details": "Byzantine server committing to one message m but sign m'(\\neq m) The byzantine server is penalized. "
 				},
 				"checkActive(address)": {
 					"details": "check if a server is active "
@@ -676,45 +715,43 @@
 				"claimServiceFees(uint256)": {
 					"details": "server retrieves service fees actively; or scheduler calls "
 				},
+				"computeHash(bytes)": {
+					"details": "Compute hash internal pure"
+				},
 				"deposit()": {
 					"details": "servers make deposits "
 				},
 				"fullfil(uint256,bool)": {
 					"details": "Substitute with an actual Oracle contract after deployment on ChainLink fulfill(bytes32 _requestId, bool trivial)"
 				},
-				"getPk(address)": {
-					"details": "obtain public key from address"
-				},
-				"getPks(address[])": {
-					"details": "obtain public key from addresses"
-				},
-				"postRequests(address[],uint256,uint256,uint256)": {
+				"postRequests(address[],bytes32[],bytes32[])": {
 					"details": "post queries: for convenience, we let query vector and addresses correspond to each other (ordered) but this is not a must, we can have indicator string prepended to each query byte string"
 				},
 				"reportTrivial(uint256,bool)": {
 					"details": "report trivial circuits for Type 2 accusation"
 				},
-				"submitNewInfo1(uint256,uint8,bytes,uint256,uint256)": {
-					"details": "submit auxiliary information for Type 1 evidence (-query and -response)",
+				"submitNewInfo1(uint256,uint8,bytes)": {
+					"details": "submit auxiliary information for Type 1 evidence (-query or -response)",
 					"params": {
-						"a": "signature part 1 from user; or message in uint ",
-						"b": "signature part 2 from user; or randomness used in commitment ",
 						"etype": "evidence type",
 						"mg": "message plaintext",
 						"pid": "proposal id"
 					}
 				},
-				"submitNewInfo2(uint256,uint8,bytes,uint256,uint256)": {
+				"submitNewInfo2(uint256,uint8,bytes)": {
 					"details": "submit auxiliary information for Type 2 evidence"
 				},
-				"submitResponse(bytes32,uint256,uint256,uint256,uint256)": {
+				"submitResponse(bytes32,bytes32,uint256)": {
 					"details": "submit response:  avoided repeated submissions does not check answer"
 				},
-				"updateKey(uint256[])": {
-					"details": "update IBE key"
+				"vrfyHash(bytes32,bytes)": {
+					"details": "Verify hash"
 				},
 				"withdraw()": {
 					"details": "withdraw deposits"
+				},
+				"xorReconstruct(uint256,uint256)": {
+					"details": "Sample function for Type 2 accusation: simple XOR-based reconstruction internal view"
 				}
 			},
 			"version": 1
@@ -753,12 +790,20 @@
 				"dweb:/ipfs/QmP9rTV5qB9a1urkNq9dSGBh5SYhrsk9BrzVEiZmL6DKiL"
 			]
 		},
-		"contracts/SimpleCoordinator.sol": {
-			"keccak256": "0x9be12292e6fe9be944eb00830497d16c5999895ae1a890f871ec1b6af65fbbc0",
+		"contracts/ECDSA.sol": {
+			"keccak256": "0x920767eeefad621905a3414f632759eaa56dfd3d6e6782f6f935b58742160bee",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8251babcd459c235230454e8a7ed0bef248e6280553b07da173338b7425bba28",
-				"dweb:/ipfs/Qmd4NHtb3acogdkV7938XdByzDczsKMFdF7AEi8xQ9UZQg"
+				"bzz-raw://d71994848e60ba7e2460e90365d3312751c193f3f72d7cc277ee0fc973370064",
+				"dweb:/ipfs/QmcEwXm32Lu891EmvWg54QRnhFJnodgmiy5bP6YdTqK6ir"
+			]
+		},
+		"contracts/SimpleCoordinator.sol": {
+			"keccak256": "0x231bf7f0c811f8e61f0cfb6c866e814bd71998eb2666f3d83c09894a711ff024",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://7fa598d3485c73b50edc67b67cc92e30cd627c11785cbed74a7b4b9e5428fa62",
+				"dweb:/ipfs/QmWrcqLpszzgqWLvJ4oE2vq8LNFmXP33fBSvLqNr8fZt3t"
 			]
 		}
 	},
