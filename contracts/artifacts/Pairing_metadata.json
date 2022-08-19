@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ZKVerifierGroth.sol": "Pairing"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ZKVerifierGroth.sol": {
+			"keccak256": "0x276df8ea43a235398e9c8be6f536ff376ec7672d50b1e92b7b11848ed815a625",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e215b69cda82e6441a3258a49f604341114612d5a154ae359becbc2d7733da50",
+				"dweb:/ipfs/QmRVBzj4vhUasBxBxR54uHFrRXi7juCVaQ31y4KFBbduMP"
+			]
+		}
+	},
+	"version": 1
+}

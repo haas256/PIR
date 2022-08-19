@@ -1,0 +1,751 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					}
+				],
+				"name": "CallOracle",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					}
+				],
+				"name": "EvidenceCollected",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "reporter",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "f",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "pid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "jid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "e_type",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "ed",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "m",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "gasLimit",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isSet",
+								"type": "bool"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct ZKCoordinator.Proposal",
+						"name": "p",
+						"type": "tuple"
+					}
+				],
+				"name": "EvidenceVerification",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					}
+				],
+				"name": "NewAccusation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					}
+				],
+				"name": "OracleResponse",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Query",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "response",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "Response",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "weiAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdrawn",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "etype",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "evidence",
+						"type": "bytes"
+					},
+					{
+						"internalType": "address",
+						"name": "cAdress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gas",
+						"type": "uint256"
+					}
+				],
+				"name": "accuse",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "server",
+						"type": "address"
+					}
+				],
+				"name": "checkActive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "server",
+						"type": "address"
+					}
+				],
+				"name": "checkDeposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					}
+				],
+				"name": "claimServiceFees",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "mismatch",
+						"type": "bool"
+					}
+				],
+				"name": "fullfilMismatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "trivial",
+						"type": "bool"
+					}
+				],
+				"name": "fullfilTriviality",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "journals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "client",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "rcnt",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isSet",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "s",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "comms",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "sigs",
+						"type": "bytes[]"
+					}
+				],
+				"name": "postRequests",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "proposals",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "reporter",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "f",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "e_type",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "ed",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "m",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gasLimit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isSet",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "mismatch",
+						"type": "bool"
+					}
+				],
+				"name": "reportMismatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "trivial",
+						"type": "bool"
+					}
+				],
+				"name": "reportTrivial",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "servers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "accusationfee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isSet",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "etype",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "m",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "pi",
+						"type": "bytes"
+					}
+				],
+				"name": "submitNewInfo1",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "pid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "etype",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "m",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "pi",
+						"type": "bytes"
+					}
+				],
+				"name": "submitNewInfo2",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "r_comm",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "r_sig",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "jid",
+						"type": "uint256"
+					}
+				],
+				"name": "submitResponse",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "toggleContractActive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"accuse(uint8,uint256,bytes,address,uint256)": {
+					"details": "accuse with evidence  "
+				},
+				"checkActive(address)": {
+					"details": "check if a server is active "
+				},
+				"checkDeposit(address)": {
+					"details": "check deposit amount of an address "
+				},
+				"claimServiceFees(uint256)": {
+					"details": "server retrieves service fees actively; or scheduler calls "
+				},
+				"deposit()": {
+					"details": "servers make deposits "
+				},
+				"fullfilMismatch(uint256,bool)": {
+					"details": "Substitute with an actual Oracle contract after deployment on ChainLink fulfill(bytes32 _requestId, bool trivial)"
+				},
+				"fullfilTriviality(uint256,bool)": {
+					"details": "Substitute with an actual Oracle contract after deployment on ChainLink fulfill(bytes32 _requestId, bool trivial)"
+				},
+				"postRequests(address[],bytes32[],bytes[])": {
+					"details": "post queries: for convenience, we let query vector and addresses correspond to each other (ordered) but this is not a must, we can have indicator string prepended to each query byte string"
+				},
+				"reportMismatch(uint256,bool)": {
+					"details": "report unmatching circuits for accusations"
+				},
+				"reportTrivial(uint256,bool)": {
+					"details": "report trivial circuits for Type 2 accusation"
+				},
+				"submitNewInfo1(uint256,uint8,address,bytes,bytes)": {
+					"details": "submit zk proof for Type 1 evidence (-query or -response)",
+					"params": {
+						"cAddr": "verifier address",
+						"etype": "evidence type",
+						"pi": "zk proof",
+						"pid": "proposal id"
+					}
+				},
+				"submitNewInfo2(uint256,uint8,address,bytes,bytes)": {
+					"details": "submit auxiliary information for Type 2 evidence"
+				},
+				"submitResponse(bytes32,bytes,uint256)": {
+					"details": "submit response:  avoided repeated submissions does not check answer"
+				},
+				"withdraw()": {
+					"details": "withdraw deposits"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "for oracle api calls on chainlink address private oracle; // address of Oracle contract on Kovan network bytes32 private jobId; // job id on Kovan network uint256 private fee = 1 * 10 ** 18; // depends"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ZKCoordinator.sol": "ZKCoordinator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BytesLib.sol": {
+			"keccak256": "0x5b828be8178d098728c4d203af265981da6d6ef5ab2d620992ca962bf0c45885",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://0af6595cff5ee7785023dee8a4f0eacffa33fcb407d3ddcd779cf82758ff0cfc",
+				"dweb:/ipfs/QmP9rTV5qB9a1urkNq9dSGBh5SYhrsk9BrzVEiZmL6DKiL"
+			]
+		},
+		"contracts/ECDSA.sol": {
+			"keccak256": "0x920767eeefad621905a3414f632759eaa56dfd3d6e6782f6f935b58742160bee",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d71994848e60ba7e2460e90365d3312751c193f3f72d7cc277ee0fc973370064",
+				"dweb:/ipfs/QmcEwXm32Lu891EmvWg54QRnhFJnodgmiy5bP6YdTqK6ir"
+			]
+		},
+		"contracts/ZKCoordinator.sol": {
+			"keccak256": "0xa15a6aff361dbe3b24612c35ae1324467b4d83620e117b0b700cf98748191b05",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://f0af68cb0608eeb7b9e9fbf9ace8866ba82ec051ed4e0f5975cd0912c3e6bd64",
+				"dweb:/ipfs/QmayrtCaf3m2PSkcEqYNmdXckDDooYZ3bZBk3pdHpz3PR6"
+			]
+		}
+	},
+	"version": 1
+}

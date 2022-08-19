@@ -13,8 +13,11 @@
 | verify type 1                     | 61822       | 
 | check triviality                  | 66991 + Chainlink costs| Sum(25439 41552)
 | verify type 2                     | 275279      | Sum(82649 68375 124255)
+| Plonk Verifier                    | 2286423     | 1989563 (deploy) + 296860 (execution)
+| Goth16 Verifier                   | 2360902     | 2079665 (deploy) + 281237 (execution)
 
-## Example requests
+
+## Example requests to the normal coordinator
 ### Setup
 >> Addresses of queried servers:
 Server 1: 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2

@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "proof",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "pubSignals",
+						"type": "uint256[]"
+					}
+				],
+				"name": "verifyProof",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ZKVerifierPlonk.sol": "PlonkVerifier"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ZKVerifierPlonk.sol": {
+			"keccak256": "0xb0b64ff0433f3b3a8c76396740e51027b0156d29b19bbaa02d7acfbb2333fce2",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://8059adbca1a9ebb48d2ff81f42032d339bb48dec51054037643035fe55b7d2f2",
+				"dweb:/ipfs/QmVEQypBkgTv8TgRtbYLeEdDRpxVgWH8ydVjnzfMB8M5tD"
+			]
+		}
+	},
+	"version": 1
+}
